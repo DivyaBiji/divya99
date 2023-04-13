@@ -263,6 +263,66 @@ dataLayer.push({
     </script>
 </body>
 </html>
+			<!--
+  Note: In the following code sample, make sure to
+  replace "TAG_ID" with your tag ID.
+  Learn more: https://support.google.com/tagmanager/answer/12326985
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=TAG_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'TAG_ID');
+    </script>
+</head>
+<body>
+    <div>This is where the purchase form would go</div>
+    <button id="shopnow">ShopNow</button>
+    <script>
+    document.getElementById("shopnow").addEventListener("click", function () {
+        gtag("event", "shopnow", {
+                // This purchase event uses a different transaction ID
+                // from the previous purchase event so Analytics
+                // doesn't deduplicate the events.
+                // Learn more: https://support.google.com/analytics/answer/12313109
+                transaction_id: "Tran_001",
+                value: 34.42,
+                tax: 5,
+                shipping: 2,
+                currency: "INR",
+                coupon: "WINTER_SALE",
+                items: [
+                {
+                  item_id: "12345",
+                  item_name: "Swatter",
+                  affiliation: "Google Merchandise Store",
+                  coupon: "WINTER_SALE",
+                  discount: 2,
+                  index: 0,
+                  item_brand: "Google",
+                  item_category: "Apparel",
+                  item_category2: "Adult",
+                  item_category3: "Shirts",
+                  item_category4: "Crew",
+                  item_category5: "Short sleeve",
+                  item_list_id: "related_products",
+                  item_list_name: "Related Products",
+                  item_variant: "green",
+                  location_id: "PUNE002",
+                  price: 5,
+                  quantity: 5­
+                }]
+          });
+      });
+    </script>
+</body>
+</html>
                 
                 </div>
             </div>
